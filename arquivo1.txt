@@ -1,0 +1,4 @@
+1 Ciclope1 30 70
+1 Ciclope2 24 75
+1 Ciclope3 23 77
+
