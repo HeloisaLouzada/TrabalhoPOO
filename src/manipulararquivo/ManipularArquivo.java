@@ -33,8 +33,8 @@ public class ManipularArquivo{
                     if(time == 1){
                         switch(tipo){
                             case 1 -> guerreiro = new Ciclope(tipo,nome,idade,peso, 35);//O pai
-                            case 2 -> guerreiro = new Manticora(tipo,nome,idade,peso, 30);//guerreiro = new Manticora(tipo,nome,idade,peso,30);
-                            case 3 -> guerreiro = new Hidra(tipo,nome,idade,peso, 50);//guerreiro = new Hidra(tipo,nome,idade,peso, 50);
+                            case 2 -> guerreiro = new Manticora(tipo,nome,idade,peso, 30);
+                            case 3 -> guerreiro = new Hidra(tipo,nome,idade,peso, 50);
                             case 4 -> guerreiro = new Valquiria(tipo,nome,idade,peso, 20);
                             case 5 -> guerreiro = new LoboFenris(tipo,nome,idade,peso, 40);
                             case 6 -> { 
@@ -43,6 +43,7 @@ public class ManipularArquivo{
                             }
                             
                             default -> {
+                                break;
                            }
                         }
                     } else{
@@ -51,7 +52,7 @@ public class ManipularArquivo{
                             case 2 -> guerreiro = new Satiro(tipo,nome,idade,peso,10);
                             case 3 -> {
                                 guerreiro = new Argus(tipo,nome,idade,peso,1000);
-                                 guerreiro.setEnergia(60);
+                                guerreiro.setEnergia(60);
                             }
                             case 4 -> guerreiro = new Anubita(tipo,nome,idade,peso,10);
                             case 5 -> guerreiro = new HomemEscorpiao(tipo,nome,idade,peso,20);
@@ -78,7 +79,7 @@ public class ManipularArquivo{
                scan.close();
                //equipe.add(subLista);
            }catch (FileNotFoundException erro){
-            System.out.println("Arquivo não encontrado");
+             System.out.println("Arquivo não encontrado");
            } 
    
     return subLista;

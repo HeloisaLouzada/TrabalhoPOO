@@ -1,5 +1,6 @@
 package guerreiros.gregos;
 
+import ageOfMythologyRetoldArena.Arena;
 import ageOfMythologyRetoldArena.Equipe;
 import guerreiros.Guerreiro;
 import java.util.LinkedList;
@@ -20,7 +21,7 @@ public class Hidra extends Grego{
     }
        
     @Override
-    public void ataque(Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
+    public void ataque(Arena parquinho,Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
         System.out.println(this.getNome()+" está atacando");
         LinkedList<Guerreiro> filaInimiga = equipeInimiga.getEquipe().get(indiceInimigo);
         Guerreiro guerreiroInimigo = filaInimiga.getFirst();

@@ -1,12 +1,13 @@
 package guerreiros.atlantes;
 
+import ageOfMythologyRetoldArena.Arena;
 import ageOfMythologyRetoldArena.Equipe;
 import guerreiros.Guerreiro;
 import java.util.LinkedList;
 
 public class Prometeano extends Atlante{
     private int geracao;// por zero
-    private int filhos=0;
+    private int filhos = 0;
 
     public Prometeano(int tipo, String nome, int idade, double peso, int ataque, int geracao) {
         super(tipo, nome, idade, peso, ataque);
@@ -37,7 +38,7 @@ public class Prometeano extends Atlante{
     }
             
     @Override
-    public void ataque(Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
+    public void ataque(Arena parquinho, Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
         System.out.println(this.getNome()+" está atacando");
         
         LinkedList<Guerreiro> filaInimiga = equipeInimiga.getEquipe().get(indiceInimigo);

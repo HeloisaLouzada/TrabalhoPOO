@@ -1,4 +1,3 @@
-1 Ciclope1 30 70
-1 Ciclope2 24 75
-1 Ciclope3 23 77
-
+6 GigantePedra1 30 70
+6 GigantePedra2 24 75
+6 GigantePedra3 23 77

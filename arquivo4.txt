@@ -1,3 +1,4 @@
-4 Valquiria10 34 73
-4 Valquiria11 22 81
-4 Valquiria12 28 60
+1 Ciclope10 34 73
+1 Ciclope11 22 81
+1 Ciclope12 28 60
+

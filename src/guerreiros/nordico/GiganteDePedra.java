@@ -1,5 +1,6 @@
 package guerreiros.nordico;
 
+import ageOfMythologyRetoldArena.Arena;
 import ageOfMythologyRetoldArena.Equipe;
 import guerreiros.Guerreiro;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ public class GiganteDePedra extends Nordico{
     }
 
     @Override
-    public void ataque(Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo,int indiceAliado, int timeSorteado) {
+    public void ataque(Arena parquinho, Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo,int indiceAliado, int timeSorteado) {
         System.out.println(this.getNome()+" está atacando");
         //passar o índice do elemento
         LinkedList<Guerreiro> filaInimiga = equipeInimiga.getEquipe().get(indiceInimigo);
@@ -19,11 +20,12 @@ public class GiganteDePedra extends Nordico{
         guerreiroInimigo.perderVida(this.getAtaque(), equipeInimiga);
         
         //HABILIDADE EXCLUSIVA 
-        /*
-         if((equipeAliada.getContadorAtaques() == 6 ) && (timeSorteado == equipeAliada.getIndicador())){//Vê se foi o primeiro a atacar
-            return
+         if((equipeAliada.getContadorAtaques() == 1 ) && (timeSorteado == equipeAliada.getIndicador())){//Vê se foi o primeiro a atacar
+            parquinho.setAtaqueGigantePedra(true);
+            parquinho.setIndiceGigante(indiceAliado);
+            System.out.println("Método gigante de pedra ativado");
         }
-        */
+        System.out.println("-------------------------------------------");
         
         //ENVENENADO
         this.envenenado();

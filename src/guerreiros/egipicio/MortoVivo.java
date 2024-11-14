@@ -1,5 +1,6 @@
 package guerreiros.egipicio;
 
+import ageOfMythologyRetoldArena.Arena;
 import ageOfMythologyRetoldArena.Equipe;
 import guerreiros.Guerreiro;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ public class MortoVivo extends Guerreiro {
     }
     
     @Override
-    public void ataque(Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
+    public void ataque(Arena parquinho,Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado) {
         LinkedList<Guerreiro> filaInimiga = equipeInimiga.getEquipe().get(indiceInimigo);
         Guerreiro guerreiroInimigo = filaInimiga.getFirst();
         guerreiroInimigo.perderVida(this.getAtaque(), equipeInimiga);

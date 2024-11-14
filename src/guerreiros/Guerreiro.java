@@ -1,5 +1,6 @@
 package guerreiros;
 
+import ageOfMythologyRetoldArena.Arena;
 import ageOfMythologyRetoldArena.Equipe;
 import java.util.LinkedList;
 
@@ -14,7 +15,7 @@ public abstract class Guerreiro {
     private boolean statusEnvenenado = false;
     private int qtdeInimigosMortos = 0;
   
-
+    //CONSTRUTOR
     public Guerreiro(int tipo, String nome, int idade, double peso, int ataque) {
         this.tipo = tipo;
         this.nome = nome;
@@ -24,6 +25,7 @@ public abstract class Guerreiro {
     }
     
     
+    //GET
     public int getTipo() {
         return tipo;
     }
@@ -59,7 +61,9 @@ public abstract class Guerreiro {
     public int getQtdeInimigosMortos() {
         return qtdeInimigosMortos;
     }
-         
+    
+    
+    //SET
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
@@ -96,7 +100,7 @@ public abstract class Guerreiro {
         this.qtdeInimigosMortos = qtdeInimigosMortos;
     }
         
-    public abstract void ataque(Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado);
+    public abstract void ataque(Arena parquinho, Equipe equipeInimiga, Equipe equipeAliada, int indiceInimigo, int indiceAliado, int timeSorteado);
     
     
     public void perderVida(int ataque, Equipe equipeAliada) {

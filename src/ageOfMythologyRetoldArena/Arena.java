@@ -6,12 +6,32 @@ import manipularlista.ManipularLista;
 import manipulararquivo.ManipularArquivo;
 import java.util.Random;
 import static manipularlista.ManipularLista.moverFinalFila;
-import static manipularlista.ManipularLista.removerFila;
+
 
 public class Arena {
-    boolean ataqueGigantePedra = false;
+    private boolean ataqueGigantePedra = false;
+    private int indiceGigante = 0;
     LinkedList<LinkedList<Guerreiro>> ladoGN;
     LinkedList<LinkedList<Guerreiro>> ladoAE;
+
+    public boolean isAtaqueGigantePedra() {
+        return ataqueGigantePedra;
+    }
+
+    public void setAtaqueGigantePedra(boolean ataqueGigantePedra) {
+        this.ataqueGigantePedra = ataqueGigantePedra;
+    }
+
+    public int getIndiceGigante() {
+        return indiceGigante;
+    }
+
+    public void setIndiceGigante(int indiceGigante) {
+        this.indiceGigante = indiceGigante;
+    }
+    
+    
+    
     
     public static void main(String[] args) {
         final int quantidade = 4;
@@ -55,27 +75,31 @@ public class Arena {
             time = (sorteador.nextInt(2) + 1);
 
             System.out.println("\nO TIME SORTEADO FOI:" + time);
-
+            
             if (time == 1) { //ADICIONAR O MÉTODO ENTERRO DEPOIS DE CADA ATAQUE PARA LIMPAR A ARENA
                 equipeQueMorreu = "Equipe GN";
-                parquinho.combate(equipeGN, equipeAE, time, quantidadeFilas);
+                parquinho.combate(parquinho, equipeGN, equipeAE, time, quantidadeFilas);
                 ManipularLista.enterro(equipeAE);
                 
                 equipeQueMorreu = "Equipe AE";
-                parquinho.combate(equipeAE, equipeGN, time, quantidadeFilas);
+                parquinho.combate(parquinho, equipeAE, equipeGN, time, quantidadeFilas);
                 ManipularLista.enterro(equipeGN);
 
             } else {
                 equipeQueMorreu = "Equipe AE";
-                parquinho.combate(equipeAE, equipeGN, time, quantidadeFilas);
+                parquinho.combate(parquinho, equipeAE, equipeGN, time, quantidadeFilas);
                 ManipularLista.enterro(equipeGN);
                 
                 equipeQueMorreu = "Equipe GN";
-                parquinho.combate(equipeGN, equipeAE, time, quantidadeFilas);
+                parquinho.combate(parquinho, equipeGN, equipeAE, time, quantidadeFilas);
                 ManipularLista.enterro(equipeAE);
             }
             //REINICIAR RODADA
             //finalizou o combate, joga os guerreiros para trás
+            //Desliga o método gigante
+            parquinho.setAtaqueGigantePedra(false);
+            System.out.println("Efeito do gigante de pedra silenciado");
+                        
             moverFinalFila(equipeGN, quantidadeFilas);
             moverFinalFila(equipeAE, quantidadeFilas);
             equipeGN.setContadorAtaques(0);
@@ -92,7 +116,7 @@ public class Arena {
         }*/
     }
 
-    public void combate(Equipe equipeAliada, Equipe equipeInimiga, int timeSorteado, int quantidade) {
+    public void combate(Arena parquinho, Equipe equipeAliada, Equipe equipeInimiga, int timeSorteado, int quantidade) {
         System.out.println("\n\n\n======================== INICIO DO COMBATEEEE! ========================\n\n\n");
 
         // Pega a fila que irá atacar, e repete por todas
@@ -131,7 +155,13 @@ public class Arena {
                     
                     System.out.println("Guerreiro aliado da fila " + i + " está atacando o inimigo da fila" + j);
                     equipeAliada.setContadorAtaques(equipeAliada.getContadorAtaques() + 1);
-                    guerreiroAliado.ataque(equipeInimiga, equipeAliada, j, i, timeSorteado);
+                    
+                    if ((parquinho.ataqueGigantePedra == true) && (timeSorteado != equipeAliada.getIndicador())) {
+                        guerreiroAliado.ataque(parquinho, equipeInimiga, equipeAliada, parquinho.getIndiceGigante(), i, timeSorteado);
+                    } else {
+                        guerreiroAliado.ataque(parquinho, equipeInimiga, equipeAliada, j, i, timeSorteado);
+                    }
+                    
                     guerreiroInimigo.verificaMorte(equipeInimiga);// Tira o morto da arena
                     
                     
