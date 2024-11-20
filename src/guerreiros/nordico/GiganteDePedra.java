@@ -23,7 +23,7 @@ public class GiganteDePedra extends Nordico{
          if((equipeAliada.getContadorAtaques() == 1 ) && (timeSorteado == equipeAliada.getIndicador())){//Vê se foi o primeiro a atacar
             parquinho.setAtaqueGigantePedra(true);
             parquinho.setIndiceGigante(indiceAliado);
-            System.out.println("Método gigante de pedra ativado");
+            System.out.println("MÉTODO GIGANTE DE PEDRA ATIVADO");
         }
         System.out.println("-------------------------------------------");
         

@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
+import manipularlista.ManipularLista;
 
 public class ManipularArquivo{
     
@@ -66,11 +67,7 @@ public class ManipularArquivo{
                     
                     
                     if (guerreiro != null) {
-                        System.out.println(guerreiro.getNome());
-                        System.out.println(guerreiro.getIdade());
-                        System.out.println(guerreiro.getPeso());
-                        System.out.println(guerreiro.getEnergia());
-                        
+                        ManipularLista.imprimir(guerreiro, time);
                         subLista.add(guerreiro);
                     } else{
                         System.out.println("Tipo de guerreiro inválido: " + tipo);

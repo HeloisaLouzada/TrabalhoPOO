@@ -29,20 +29,42 @@ public class ManipularLista {
          
     }
     
-    /*public static void enterro(Equipe equipe) {
+    public static void imprimir(Guerreiro guerreiro, int time) {
+        String especie = null; 
         
-        for (int i = 0; i < equipe.getEquipe().size(); i++) { //anda para o próximo for
-            LinkedList<Guerreiro> fila = equipe.getEquipe().get(i);
-
-            for (Guerreiro falecido : fila) {
-                if (!falecido.isStatusVida()) {
-                    fila.remove(falecido);
-                    System.out.print("Um minuto de silêncio para:" + falecido.getNome() + "\n\n\n");
+        if (time == 1) {
+            switch (guerreiro.getTipo()) {
+                case 1 -> especie = "Ciclope";
+                case 2 -> especie = "Mantícora";
+                case 3 -> especie = "Hidra";
+                case 4 -> especie = "Valquíria";
+                case 5 -> especie = "Lobo de Fenris";
+                case 6 -> especie = "Gigante de Pedra";
+                default -> {
+                    break;
+                }
+            }
+        } else {
+            switch (guerreiro.getTipo()){ 
+                case 1 -> especie = "Prometeano";
+                case 2 -> especie = "Sátiro";
+                case 3 -> especie = "Argus";
+                case 4 -> especie = "Anubita";
+                case 5 -> especie = "Homem escorpião";
+                case 6 -> especie = "Múmia";
+                default -> {
+                    break;
                 }
             }
         }
-
-    }*/  
+        
+        System.out.println("Espécie:"+ especie);
+        System.out.println("Nome:"+ guerreiro.getNome());
+        System.out.println("Idade:"+ guerreiro.getIdade());
+        System.out.println("Peso:"+guerreiro.getPeso());
+        System.out.println("Energia:"+guerreiro.getEnergia());
+                               
+    }
 
 public static void enterro(Equipe equipe) {
     for (int i = 0; i < equipe.getEquipe().size(); i++) { 
